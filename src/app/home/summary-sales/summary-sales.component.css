@@ -1,0 +1,13 @@
+.btn-details {
+    background-color: var(--secondary-color);
+    color:var(--text-color)
+    
+}
+.btn-details:hover,.btn-details:active,.btn-details:visited {
+    color: var(--primary-color);
+}
+.thead-andes{
+    color:var(--text-color);
+    background-color: var(--secondary-color);
+
+}

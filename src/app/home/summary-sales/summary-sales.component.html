@@ -1,10 +1,8 @@
-<div>
-  <h1 style="text-transform: uppercase;">empresa mas ventas ${{bestCompany?.amount | number}}</h1>
-  <h1 style="text-transform: uppercase;">mes mas ventas {{sellingMonth}}</h1>
 
-  <table class="table table-striped">
 
-    <thead>
+  <table class="table table-bordered">
+
+    <thead class="thead-andes">
       <tr>
         <th scope="col" sortable="name" (sort)="onSort($event)">Nombre de empresa</th>
         <th scope="col" sortable="totalSales" (sort)="onSort($event)">Total de ventas</th>
@@ -20,9 +18,8 @@
         <td>${{ company.totalSales | number }}</td>
         <td>${{ company.commission | number }}</td>
         <td>
-          <button type="button" class="btn btn-primary" (click)="onClick(this.company)">Details</button>
+          <button style="margin:auto" type="button" class="btn btn-details" (click)="onClick(this.company)">Ver detalles</button>
         </td>
       </tr>
     </tbody>
   </table>
-</div>
