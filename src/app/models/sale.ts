@@ -1,4 +1,4 @@
-interface Sale {
+export default interface Sale {
     createdAt:Date;
     datePayment:Date;
     day:Date;

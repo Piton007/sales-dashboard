@@ -2,10 +2,10 @@
 
 export interface CompanyInfo {
     totalSales:number,
-    commisssion:number
+    commission:number
 }
 
-type TotalSalesByCompany = Map<string,CompanyInfo> 
+type TotalSalesByCompany = {[name:string]:CompanyInfo}
 
 
 export default TotalSalesByCompany

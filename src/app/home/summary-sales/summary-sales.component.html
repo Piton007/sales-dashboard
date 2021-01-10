@@ -1,8 +1,9 @@
 <table class="table table-striped">
+ 
     <thead>
     <tr>
       <th scope="col" sortable="name" (sort)="onSort($event)">Nombre de empresa</th>
-      <th scope="col" sortable="total" (sort)="onSort($event)">Total de ventas</th>
+      <th scope="col" sortable="totalSales" (sort)="onSort($event)">Total de ventas</th>
       <th scope="col"  >Comisión</th>
       <th scope="col"  >Detalle</th>
     </tr>
@@ -10,10 +11,10 @@
     <tbody>
     <tr *ngFor="let company of totalSalesByCompanySortable">
       <td>
-        {{ country.name }}
+        {{ company.name }}
       </td>
-      <td>{{ country.totalSales | number }}</td>
-      <td>{{ country.comission | number }}</td>
+      <td>{{ company.totalSales | number }}</td>
+      <td>{{ company.commission | number }}</td>
       <td>Detalleee</td>
     </tr>
     </tbody>

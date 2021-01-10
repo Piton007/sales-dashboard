@@ -3,7 +3,7 @@ import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import {CompanyInfo} from 'src/app/viewmodels/totalSalesByCompany';
 
 type TotalSalesRecord = {name:string} & CompanyInfo
-type SortColumn = 'name' | 'total' | '';
+type SortColumn = keyof TotalSalesRecord | '';
 type SortDirection = 'asc' | 'desc' | '';
 const rotate: {[key: string]: SortDirection} = { 'asc': 'desc', 'desc': '', '': 'asc' };
 
@@ -49,11 +49,11 @@ export class SummarySalesComponent implements OnInit {
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
   ngOnInit(): void {
+
     this.firestoreService.getTotalSalesByCompany().subscribe((companies)=>{
-      for(let [key,value] of companies.entries()){
-        this._totalSalesByCompany.push({name:key,...value})
-      }
-      
+      this._totalSalesByCompany = Object.keys(companies).map(k=>({name:k,...companies[k]}))
+      this._totalSalesByCompany.sort((a,b)=>  b.totalSales - a.totalSales )
+      this.totalSalesByCompanySortable = this._totalSalesByCompany
     })
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {reduce} from "rxjs/operators"
+import {map, reduce} from "rxjs/operators"
 import {Sale} from "../../models"
 import {TotalSales} from "../../viewmodels"
 
@@ -13,16 +13,21 @@ export class FirestoreService {
   constructor(
     private firestore: AngularFirestore
   ) { }
+
   public getTotalSalesByCompany(){
-    return this.firestore.collection<Sale>('sales').snapshotChanges().pipe(reduce((acc,sales,index)=>{
-      const doc = sales[index].payload.doc.data()
-      if (acc[doc.nameAgency]){
-        acc[doc.nameAgency] = {totalSales:acc[doc.nameAgency].totalSales + doc.finalPrice, commisssion: acc[doc.nameAgency].commisssion + doc.finalPrice * 0.025}
+    return this.firestore.collection<Sale>('sales').valueChanges().pipe(map(sales=>{
+      const hey = sales.reduce((_acc,sale)=>{
+        const doc = sale
+      if (_acc[doc.nameAgency]){
+        _acc[doc.nameAgency] = {totalSales:_acc[doc.nameAgency].totalSales + doc.finalPrice, commission: _acc[doc.nameAgency].commission + doc.finalPrice * 0.025}
       }else{
-        acc[doc.nameAgency] = {totalSales:doc.finalPrice,commisssion:doc.finalPrice * 0.025}  
+        _acc[doc.nameAgency] = {totalSales:doc.finalPrice,commission:doc.finalPrice * 0.025}  
       }
-      return acc 
-    },{} as TotalSales))
+      return _acc 
+      },{})
+   
+      return hey
+    }))
   }
 
 
