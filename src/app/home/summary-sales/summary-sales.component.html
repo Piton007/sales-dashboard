@@ -9,13 +9,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let company of totalSalesByCompanySortable">
+    <tr *ngFor="let company of data">
       <td>
         {{ company.name }}
       </td>
       <td>{{ company.totalSales | number }}</td>
       <td>{{ company.commission | number }}</td>
-      <td>Detalleee</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="onClick(this.company)">Details</button>
+      </td>
     </tr>
     </tbody>
   </table>

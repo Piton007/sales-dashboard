@@ -1,6 +1,7 @@
-
+import SaleRecord from "./saleRecord"
 
 export interface CompanyInfo {
+    sales:SaleRecord[],
     totalSales:number,
     commission:number
 }

@@ -1,7 +1,7 @@
 export default interface Sale {
     createdAt:Date;
     datePayment:Date;
-    day:Date;
+    day:string;
     finalPrice:number;
     hour:string;
     name:string,

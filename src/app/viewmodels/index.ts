@@ -1,2 +1,4 @@
 import TotalSales,{CompanyInfo} from "./totalSalesByCompany"
-export  {TotalSales,CompanyInfo}
+import SaleRecord from "./saleRecord" 
+
+export  {TotalSales,CompanyInfo,SaleRecord}
