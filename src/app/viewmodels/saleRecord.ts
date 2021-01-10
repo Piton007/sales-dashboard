@@ -1,7 +1,7 @@
 export default interface SaleRecord {
-    clientName:string,
-    people:number,
+    name:string,
+    persons:number,
     day:string,
     hour:string,
-    amount:number
+    finalPrice:number
 }

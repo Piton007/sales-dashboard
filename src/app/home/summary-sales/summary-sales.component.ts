@@ -1,9 +1,16 @@
-import { Component, Directive, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import {CompanyInfo} from 'src/app/viewmodels/totalSalesByCompany';
 import {Table} from "../../utils/sortableTable"
 
+interface BestCompany {
+  name:string,
+  amount:number
+}
 type TotalSalesRecord = {name:string} & CompanyInfo
+
 type SortColumn = keyof Omit<TotalSalesRecord,'sales'> | '';
 
 @Component({
@@ -13,24 +20,34 @@ type SortColumn = keyof Omit<TotalSalesRecord,'sales'> | '';
 })
 export class SummarySalesComponent extends Table<SortColumn> implements OnInit {
 
-  constructor(private firestoreService: FirestoreService) {
+  constructor(private firestoreService: FirestoreService,private route:Router) {
     super()
    }
-
+   totalSales:Subscription
+   _sellingMonth:Subscription
+   bestCompany?:BestCompany
+   sellingMonth:string = ""
 
   ngOnInit(): void {
 
-    this.firestoreService.getTotalSalesByCompany().subscribe((companies)=>{
-      this._data = Object.keys(companies).map(k=>({name:k,...companies[k]}))
-      this._data.sort((a,b)=>  b.totalSales - a.totalSales )
+    this.totalSales = this.firestoreService.getTotalSalesByCompany().subscribe((companies)=>{
+      this._data = companies
       this.data = this._data
+      this.bestCompany = {name:companies[0].name,amount:companies[0].totalSales}
+    })
+    this._sellingMonth = this.firestoreService.getBestSellingMonth().subscribe((companies)=>{
+      this.sellingMonth = companies[0].name
     })
   }
 
   onClick(record:TotalSalesRecord){
-    console.log(record.sales)
+    
+    this.route.navigate([`/empresas/${record.name}`])
   }
-
+  ngOnDestroy(){
+    this.totalSales.unsubscribe()
+    this._sellingMonth.unsubscribe()
+  }
 
 
 

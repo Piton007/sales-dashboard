@@ -1,23 +1,28 @@
-<table class="table table-striped">
- 
+<div>
+  <h1 style="text-transform: uppercase;">empresa mas ventas ${{bestCompany?.amount | number}}</h1>
+  <h1 style="text-transform: uppercase;">mes mas ventas {{sellingMonth}}</h1>
+
+  <table class="table table-striped">
+
     <thead>
-    <tr>
-      <th scope="col" sortable="name" (sort)="onSort($event)">Nombre de empresa</th>
-      <th scope="col" sortable="totalSales" (sort)="onSort($event)">Total de ventas</th>
-      <th scope="col"  >Comisión</th>
-      <th scope="col"  >Detalle</th>
-    </tr>
+      <tr>
+        <th scope="col" sortable="name" (sort)="onSort($event)">Nombre de empresa</th>
+        <th scope="col" sortable="totalSales" (sort)="onSort($event)">Total de ventas</th>
+        <th scope="col">Comisión</th>
+        <th scope="col">Detalle</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let company of data">
-      <td>
-        {{ company.name }}
-      </td>
-      <td>{{ company.totalSales | number }}</td>
-      <td>{{ company.commission | number }}</td>
-      <td>
-        <button type="button" class="btn btn-primary" (click)="onClick(this.company)">Details</button>
-      </td>
-    </tr>
+      <tr *ngFor="let company of data">
+        <td>
+          {{ company.name }}
+        </td>
+        <td>${{ company.totalSales | number }}</td>
+        <td>${{ company.commission | number }}</td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="onClick(this.company)">Details</button>
+        </td>
+      </tr>
     </tbody>
   </table>
+</div>

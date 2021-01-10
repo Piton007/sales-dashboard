@@ -1,1 +1,29 @@
-<p>sales-table works!</p>
+<div>
+    <nav >
+        <a routerLink="/empresas">Empresa</a>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+        <span>{{companyName}}</span>
+
+    </nav>
+    <table class="table table-striped">
+ 
+        <thead>
+        <tr>
+          <th scope="col" sortable="clientName" (sort)="onSort($event)">Nombre de empresa</th>
+          <th scope="col" sortable="people" (sort)="onSort($event)">Personas</th>
+          <th scope="col">Día</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Valor venta</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let sale of data">
+          <td>{{ sale.name }}</td>
+          <td>{{ sale.persons | number }}</td>
+          <td>{{ sale.day}}</td>
+          <td>{{sale.hour}}</td>
+          <td>${{sale.finalPrice}}</td>
+        </tr>
+        </tbody>
+      </table>
+</div>
