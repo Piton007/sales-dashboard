@@ -20,6 +20,7 @@ export class SummarySalesTable extends Table<SortColumn> implements OnInit {
   constructor(private firestoreService: FirestoreService, private route: Router) {
     super()
   }
+ 
   totalSales: Subscription
 
   ngOnInit(): void {
@@ -27,7 +28,8 @@ export class SummarySalesTable extends Table<SortColumn> implements OnInit {
     this.totalSales = this.firestoreService.getTotalSalesByCompany().subscribe((companies) => {
       this._data = companies
       this.data = this._data
-
+     
+     
     })
 
   }

@@ -6,8 +6,3 @@
 .btn-details:hover,.btn-details:active,.btn-details:visited {
     color: var(--primary-color);
 }
-.thead-andes{
-    color:var(--text-color);
-    background-color: var(--secondary-color);
-
-}

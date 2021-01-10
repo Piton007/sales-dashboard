@@ -1,0 +1,15 @@
+.navbar-details {
+   padding: 20px 0px;
+}
+
+
+.navbar-details > * {
+    font-size: 28px;
+    margin:5px 3px;
+}
+
+.navbar-details > *:not(:first-child)::before {
+    content: ">";
+    margin:0 4px;
+    font-size: 28px;
+} 

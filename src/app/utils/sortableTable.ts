@@ -1,4 +1,5 @@
-import { Component, Directive, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren, ɵConsole } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, Directive, EventEmitter, Input, OnInit, Output, QueryList, SimpleChanges, ViewChildren, ɵConsole } from '@angular/core';
 
 
 
@@ -39,11 +40,17 @@ export class Table<T>  {
   constructor() { }
   _data:any[] = []
   data:any[] = []
+  isDataAvailable:boolean = false
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader<T>>;
 
-
-
+ 
+  ngDoCheck(): void {
+    if(this.data.length > 0){
+      this.isDataAvailable = true
+      document.querySelector(".table-spinner")?.classList.add("d-none")
+    }
+  }
   onSort(event:SortEvent<T>){
 
     this.resetHeader(event);

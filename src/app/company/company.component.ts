@@ -14,14 +14,11 @@ export class CompanyComponent implements OnInit {
   companyName:string = ""
   sales:Sale[]
   salesStream:Subscription
-  constructor(private route:ActivatedRoute,private firestoreService: FirestoreService) { }
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.salesStream  = this.route.params.subscribe(params => {
       this.companyName = params.id
-      this.firestoreService.getSalesByCompany(params.id).subscribe(sales => {
-        this.sales =  sales 
-      })
     })
   }
   ngOnDestroy(){

@@ -1,16 +1,10 @@
 <div style="width:100%;margin:0px">
-    <header class="kpi">
+    <header class="kpis">
         <div class="kpi-simple">
-          <div class ="kpi-simple-label"> empresa mas venta</div>
-          <div  class ="kpi-simple-value">
-            ${{bestCompany.amount | number}}
-          </div>
+            <app-bestcompany-kpi></app-bestcompany-kpi>
         </div>
         <div class="kpi-simple"   >
-          <div class="kpi-simple-label" > mes mas ventas</div>
-          <div class="kpi-simple-value" >
-            {{sellingMonth}}
-          </div>
+            <app-bestmonth-kpi></app-bestmonth-kpi>
         </div>
       </header>
     <div class="summary-table">

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import {HomeComponent} from "./home/home.component"
-import {SalesTableComponent} from "./company/sales-table/sales-table.component"
+import {CompanyComponent} from "./company/company.component"
 import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
   {path:"empresas", component: HomeComponent},
-  {path:"empresas/:id",component:SalesTableComponent},
+  {path:"empresas/:id",component:CompanyComponent},
   {path:"",redirectTo:"empresas",pathMatch:"full"}
 ];
 

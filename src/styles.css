@@ -34,16 +34,102 @@ th[sortable]
 
  th[sortable].desc:before, th[sortable].asc:before {
    content: '';
+   
    display: block;
-   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmxJREFUeAHtmksrRVEUx72fH8CIGQNJkpGUUmakDEiZSJRIZsRQmCkTJRmZmJgQE0kpX0D5DJKJgff7v+ru2u3O3vvc67TOvsdatdrnnP1Y///v7HvvubdbUiIhBISAEBACQkAICAEhIAQ4CXSh2DnyDfmCPEG2Iv9F9MPlM/LHyAecdyMzHYNwR3fdNK/OH9HXl1UCozD24TCvILxizEDWIEzA0FcM8woCgRrJCoS5PIwrANQSMAJX1LEI9bqpQo4JYNFFKRSvIgsxHDVnqZgIkPnNBM0rIGtYk9YOOsqgbgepRCfdbmFtqhFkVEDVPjJp0+Z6e6hRHhqBKgg6ZDCvYBygVmUoEGoh5JTRvIJwhJo1aUOoh4CLPMyvxxi7EWOMgnCGsXXI1GIXlZUYX7ucU+kbR8NW8lh3O7cue0Pk32MKndfUxQFAwxdirk3fHappAnc0oqDPzDfGTBrCfHP04dM4oTV8cxr0SVzH9FF07xD3ib6xCDE+M+aUcVygtWzzbtGX2rPBrEUYfecfQkaFzYi6HjVnGBdtL7epqAlc1+jRdAap74RrnPc4BCijttY2tRcdN0g17w7HqZrXhdJTYAuS3hd8z+vKgK3V1zWPae0mZDMykadBn1hTQBLnZNwVrJpSe/NwEeDsEwCctEOsJTsgxLvCqUl2ACftEGvJDgjxrnBqkh3ASTvEWrIDQrwrnJpkB3DSDrGW7IAQ7wqnJtkBnLRztejXXVu4+mxz/nQ9jR1w5VB86ejLTFcnDwhzV+F6T+CHZlx6THSjn76eyyBIOPHyDakhBAQAkJACAgBISAEhIAQYCLwC8JxpAmsEGt6AAAAAElFTkSuQmCC') no-repeat;
+   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAB7UlEQVR4Xu2ay47DIAxFYTM/lX5+81OzYZTpoEkQwU+cSLldVjb4HvygSXN6+Cc/XH8CAGTAwwmgBB6eAGiCKAGUwAUESimlt23OOTwjwzc8E1+BREMIBUCJvwJCGACu+GgIIQCk4iMhTAegFR8FYSoAq/gICFMAeAnfj8pZ08EdwAzxM0G4ApgtfkZJuAGIEu8NwQVAtHhPCGYAV4n3gmACcLV4DwihALZRRkHj2LS/JC0jUg2AEnIWJOVXxVB2XhBCAOxPiBImsfW4H0wH0KanBMAmkLK39gE1AE5wvdqkBHn5cB90TQNw1pg0AEawLQ1wW9cEoFJuRY2C0gLoQbCKdwPATTdt2UjWl9q6ZIBkU0sGSPbh2gIAl5SXHTLg5KWIdZ5rDwgloCWn9UMJoAT6L0bRA/4IeNzuJOWJJiih5WGLJogmiCbY/XsMpgCmwIcAxmDwP8VwD/CY7ZI1cA/APaCU+v5v9OjcqxluGTdaK6f0+k7p/XWWxscF7mDLKbhxnPXp9AZm2AQpem0orb3UnzqMfeD7ves+nMP6t/lA+gXQftlbvBec1o8+Q/4JWkEcMkArSOt3BLG8loVGs7dY1/XdyzJJRnR7gFaQ1s8KgoutByz8IsQNNsoOAKJI33UfZMBdTyYqrsdnwA+Kh6hQ2G6GFQAAAABJRU5ErkJggg==') no-repeat;
    background-size: 22px;
    width: 22px;
    height: 22px;
    float: left;
-   margin-left: -22px;
+   margin-left: -10px;
  }
-
  th[sortable].desc:before {
    transform: rotate(180deg);
    -ms-transform: rotate(180deg);
  }
+ .thead-andes{
+  color:var(--text-color);
+  background-color: var(--secondary-color);
+
+}
+a,a:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+a{
+  color: var(--primary-color);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.table-spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 100px;
+  height: 100px;
+  stroke: var(--primary-color) 
+}
+.kpi-simple-spinner {
+  text-align: center;
+}
+.kpi-simple-spinner > svg {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  margin:0 auto;
+  width: 50px;
+  height: 50px;
+  stroke: var(--secondary-color) 
+}
+
+.kpi-simple {
+  margin:1.5vw 1vw;
+  flex:1 1 auto;
+  background-color: var(--primary-color);
+  border: 2px solid;
+  border-radius: 5px;
+}
+.kpi-simple-label {
+  text-transform:uppercase;
+  font-size:2.2vw;margin:5px 0;
+  text-align: center;
+}
+.kpi-simple-value {
+  text-transform: uppercase;
+  font-size:2.8vw;
+  margin:5px 0;
+  text-align: center;
+  font-weight: bold;
+}
+.loading-path {
+  stroke: hsl(210, 70, 75);
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite
+}
+
+@keyframes rotate {
+  100% {
+      transform: rotate(360deg)
+  }
+}
+
+@keyframes dash {
+  0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0
+  }
+
+  50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35
+  }
+
+  100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124
+  }
+}

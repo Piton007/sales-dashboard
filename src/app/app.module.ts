@@ -13,6 +13,8 @@ import { SalesTableComponent } from './company/sales-table/sales-table.component
 import { NgbdSortableHeader } from './utils/sortableTable';
 import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
+import { BestcompanyKpiComponent } from './home/bestcompany-kpi/bestcompany-kpi.component';
+import { BestmonthKpiComponent } from './home/bestmonth-kpi/bestmonth-kpi.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HomeComponent } from './home/home.component';
     SummarySalesTable,
     SalesTableComponent,
     CompanyComponent,
-    HomeComponent
+    HomeComponent,
+    BestcompanyKpiComponent,
+    BestmonthKpiComponent
   ],
   imports: [
     BrowserModule,

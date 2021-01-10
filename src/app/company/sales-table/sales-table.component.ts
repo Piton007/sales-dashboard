@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { Component, Input, OnInit } from '@angular/core';
 import SaleRecord from "../../viewmodels/saleRecord";
 import {Table} from "../../utils/sortableTable"
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
@@ -15,10 +14,9 @@ type SortColumn = keyof Pick<SaleRecord,'persons'|'finalPrice'> | '';
 })
 export class SalesTableComponent extends Table<SortColumn> implements OnInit {
 
+  @Input() name:string  = ""
 
-  companyName:string = ""
-
-  constructor(private route:ActivatedRoute,private firestoreService: FirestoreService) { 
+  constructor(private firestoreService: FirestoreService) { 
     super();
     
   }
@@ -26,12 +24,10 @@ export class SalesTableComponent extends Table<SortColumn> implements OnInit {
 
 
   ngOnInit(): void {
-    this.sales  = this.route.params.subscribe(params => {
-      this.companyName = params.id
-      this.firestoreService.getSalesByCompany(params.id).subscribe(sales => {
-        this.data = sales 
-      })
+    this.sales =  this.firestoreService.getSalesByCompany(this.name).subscribe(sales => {
+      this.data = sales 
     })
+
   }
     
   ngOnDestroy(){

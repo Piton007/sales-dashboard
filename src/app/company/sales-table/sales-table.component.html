@@ -1,13 +1,8 @@
 <div>
-    <nav >
-        <a routerLink="/empresas">Empresa</a>
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-        <span>{{companyName}}</span>
 
-    </nav>
-    <table class="table table-striped">
+    <table class="table table-bordered">
  
-        <thead>
+        <thead class="thead-andes">
         <tr>
           <th scope="col" sortable="clientName" (sort)="onSort($event)">Nombre de empresa</th>
           <th scope="col" sortable="people" (sort)="onSort($event)">Personas</th>
@@ -16,7 +11,10 @@
           <th scope="col">Valor venta</th>
         </tr>
         </thead>
-        <tbody>
+        <svg class="table-spinner" viewBox="0 0 50 50">
+            <circle class="loading-path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+          </svg>
+        <tbody *ngIf="isDataAvailable">
         <tr *ngFor="let sale of data">
           <td>{{ sale.name }}</td>
           <td>{{ sale.persons | number }}</td>
