@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site":"angular-sales-dashboard",
+    "public": "dist/angular-sales-dashboard",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

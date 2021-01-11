@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
+## Click [Here](https://angular-sales-dashboard.web.app/) to visit a deployed version v1.0
+
 ## Set your firebase environment 
 Create a firebaseConfig.json in src directory
 

@@ -4,7 +4,7 @@ import {Table} from "../../utils/sortableTable"
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { Subscription } from 'rxjs';
 
-type SortColumn = keyof Pick<SaleRecord,'persons'|'finalPrice'> | '';
+type SortColumn = keyof SaleRecord;
 
 
 @Component({
@@ -25,7 +25,8 @@ export class SalesTableComponent extends Table<SortColumn> implements OnInit {
 
   ngOnInit(): void {
     this.sales =  this.firestoreService.getSalesByCompany(this.name).subscribe(sales => {
-      this.data = sales 
+      this._data = sales
+      this.data = this._data
     })
 
   }

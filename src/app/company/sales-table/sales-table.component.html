@@ -1,14 +1,14 @@
-<div>
+
 
     <table class="table table-bordered">
  
         <thead class="thead-andes">
         <tr>
-          <th scope="col" sortable="clientName" (sort)="onSort($event)">Nombre de empresa</th>
+          <th scope="col" sortable="name" (sort)="onSort($event)">Nombre de empresa</th>
           <th scope="col" sortable="people" (sort)="onSort($event)">Personas</th>
-          <th scope="col">Día</th>
-          <th scope="col">Hora</th>
-          <th scope="col">Valor venta</th>
+          <th scope="col" sortable="day" (sort)="onSort($event)">Día</th>
+          <th scope="col" sortable="hour" (sort)="onSort($event)">Hora</th>
+          <th scope="col" sortable="finalPrice" (sort)="onSort($event)">Valor venta</th>
         </tr>
         </thead>
         <svg class="table-spinner" viewBox="0 0 50 50">
@@ -24,4 +24,4 @@
         </tr>
         </tbody>
       </table>
-</div>
+

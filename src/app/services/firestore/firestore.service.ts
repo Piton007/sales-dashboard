@@ -32,7 +32,7 @@ export class FirestoreService {
 
   public getSalesByCompany(name:string){
     
-    return this.source.pipe(map(x=>x.filter(x=>x.nameAgency === name)))
+    return this.source.pipe(map(x=>x.filter(x=>x.nameAgency === name)),map((x=>x.sort((a,b)=>b.finalPrice - a.finalPrice))))
   }
 
   public getBestSellingMonth(){
