@@ -5,7 +5,7 @@ import firebaseConfig from "../firebaseConfig.json"
 
 
 export const environment = {
-  production: false,
+  production: true,
   firebase:firebaseConfig
 };
 
